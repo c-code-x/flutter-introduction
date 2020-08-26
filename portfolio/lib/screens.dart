@@ -4,8 +4,20 @@ import 'package:url_launcher/url_launcher.dart';
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String _phone = "+91 987654321";
-    String _email = "qwerty@mail.com";
+    String _userPhone = "+91 987654321";
+    String _userEmail = "qwerty@mail.com";
+    String _userName = "Jai";
+    String _userBio = "You Know me!";
+    void _launchPhone(String _phone) {
+      print('Phone btn is touched!');
+      launch("tel:" + _phone);
+    }
+
+    void _launchEmail(String _email) {
+      print('Email btn is touched!');
+      launch("mailto:$_email?subject=Sup!&body=LOL");
+    }
+
     Widget _avatar() {
       return CircleAvatar(
         radius: 60.0,
@@ -17,10 +29,10 @@ class Profile extends StatelessWidget {
 
     Widget _name() {
       return Text(
-        "Qwerty H",
+        _userName,
         style: TextStyle(
-          fontFamily: "Bilbo",
-          color: Colors.black87,
+          fontFamily: "One",
+          color: Colors.black,
           fontSize: 40.0,
           fontWeight: FontWeight.bold,
         ),
@@ -29,12 +41,13 @@ class Profile extends StatelessWidget {
 
     Widget _bio() {
       return Text(
-        "You Know me!",
+        _userBio,
         style: TextStyle(
           fontFamily: "One",
           fontSize: 25.0,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.7,
+          color: Colors.white,
         ),
       );
     }
@@ -50,20 +63,15 @@ class Profile extends StatelessWidget {
       );
     }
 
-    void _launchPhone(String _phone) {
-      print('Phone btn is touched!');
-      launch("tel:" + _phone);
-    }
-
     Widget _phoneNumber() {
       return Card(
-        color: Colors.yellow,
+        color: Colors.yellowAccent,
         margin: EdgeInsets.symmetric(
           vertical: 8.0,
           horizontal: MediaQuery.of(context).size.width * 0.15,
         ),
         child: InkWell(
-          onTap: () => (_launchPhone(_phone)),
+          onTap: () => (_launchPhone(_userPhone)),
           child: ListTile(
             leading: Icon(
               Icons.phone,
@@ -71,7 +79,7 @@ class Profile extends StatelessWidget {
               color: Colors.black,
             ),
             title: Text(
-              _phone,
+              _userPhone,
               style: TextStyle(
                 fontFamily: "One",
                 fontSize: 20,
@@ -83,20 +91,15 @@ class Profile extends StatelessWidget {
       );
     }
 
-    void _launchEmail(String _email) {
-      print('Email btn is touched!');
-      launch("mailto:$_email?subject=Sup!&body=LOL");
-    }
-
     Widget _emailId() {
       return Card(
-        color: Colors.yellow,
+        color: Colors.yellowAccent,
         margin: EdgeInsets.symmetric(
           vertical: 8,
           horizontal: MediaQuery.of(context).size.width * 0.15,
         ),
         child: InkWell(
-          onTap: () => (_launchEmail(_email)),
+          onTap: () => (_launchEmail(_userEmail)),
           child: ListTile(
             leading: Icon(
               Icons.email,
@@ -104,7 +107,7 @@ class Profile extends StatelessWidget {
               color: Colors.black,
             ),
             title: Text(
-              _email,
+              _userEmail,
               style: TextStyle(
                 fontFamily: "Roboto",
                 letterSpacing: 0,
