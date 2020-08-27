@@ -12,7 +12,7 @@ class _ProfileState extends State<Profile> {
   String _userEmail = "qwerty@mail.com";
   String _userName = "Jai";
   String _userBio = "You Know me!";
-  bool _isQrCode = true;
+  bool _isQrCode = false;
   void state() {
     setState(() {
       _isQrCode = !_isQrCode;
