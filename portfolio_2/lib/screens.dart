@@ -157,6 +157,27 @@ class _ProfileState extends State<Profile> {
       );
     }
 
+    Widget _decide() {
+      return (_isQrCode) ? _qrCode() : _profile();
+    }
+
+    Widget _icon() {
+      return InkWell(
+        onTap: () {
+          state();
+          print("Icon Tap! $_isQrCode");
+        },
+        child: Container(
+          padding: EdgeInsets.all(10),
+          // color: Colors.white,
+          child: Icon(
+            (!_isQrCode) ? Icons.code : Icons.person,
+            size: 30,
+          ),
+        ),
+      );
+    }
+
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -172,22 +193,9 @@ class _ProfileState extends State<Profile> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            (_isQrCode) ? _qrCode() : _profile(),
-            SizedBox(
-              height: 30,
-            ),
-            InkWell(
-              onTap: () {
-                print("Icon Tap! $_isQrCode");
-                state();
-              },
-              child: Container(
-                child: Icon(
-                  (!_isQrCode) ? Icons.code : Icons.person,
-                  size: 30,
-                ),
-              ),
-            ),
+            _decide(),
+            SizedBox(height: 30),
+            _icon(),
           ],
         ),
       ),
