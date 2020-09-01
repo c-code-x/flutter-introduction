@@ -54,7 +54,7 @@ class Profile extends StatelessWidget {
 
     Widget _dash() {
       return SizedBox(
-        width: 200,
+        width: MediaQuery.of(context).size.width * (1 - 2 * 0.15),
         height: 10,
         child: Divider(
           thickness: 1,
