@@ -1,3 +1,12 @@
+/**
+ * 
+ *    INDEX :
+ *    Reading Input
+ *    Data Types and Variables
+ *    Strings in Dart
+ *
+ **/
+
 import 'dart:io';
 
 void main() {
@@ -68,4 +77,11 @@ void AllAboutStrings() {
 void StringInterpolation() {
   int number = 324324;
   print('Value of num is $number');
+
+  /*
+  Basically String interpolation is embedding variables into strings.
+  &
+  It can also be combined with curly braces {} to write any expression.
+  */
+  print('Floor division :: $number ~/ 3 = ${number ~/ 3}'); // Output -> 108108
 }
