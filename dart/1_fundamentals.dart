@@ -1,3 +1,12 @@
+/**
+ * 
+ *    INDEX :
+ *    Reading Input
+ *    Data Types and Variables
+ *    Strings in Dart
+ *
+ **/
+
 import 'dart:io';
 
 void main() {
